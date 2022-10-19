@@ -7,6 +7,8 @@
 // Include SD card reading libraries
 #include <SdFat.h>
 #include <TMRpcm.h>
+// Include to use vectors
+#include <vector>
 
 
 #define buffSize 128 // for TMRpcm
@@ -19,6 +21,7 @@ SdFat SD;
 RH_ASK rf_driver;
 
 #define SD_ChipSelectPin 4  //example uses hardware SS pin 53 on Mega2560
+#define num_songs 2 // number of songs on SD card
 
 TMRpcm audio;   // create an object for use in this sketch 
 
@@ -48,6 +51,8 @@ bool leader = false;
 bool follower1 = false;
 bool follower2 = false;
 
+// Song names
+std::vector<String> songs{"0", "1"};
 
 
 void loop()
